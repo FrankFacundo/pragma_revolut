@@ -1,0 +1,106 @@
+from __future__ import annotations
+
+EVENT_COLUMNS = [
+    "user_id",
+    "event_id",
+    "created_at",
+    "event_type",
+    "direction",
+    "amount",
+    "currency",
+    "fee",
+    "description",
+    "mcc",
+    "merchant",
+    "channel",
+    "product",
+    "interact",
+    "view",
+    "symbol",
+    "price",
+    "order_type",
+    "counterparty_region",
+    "is_recurrent",
+]
+
+USER_COLUMNS = [
+    "user_id",
+    "evaluation_time",
+    "country",
+    "region",
+    "plan",
+    "age_band",
+    "device",
+    "currency",
+    "balance",
+    "balance_quantile",
+    "account_created_at",
+    "insurance_state",
+    "segment",
+    "risk_persona",
+    "label_credit_default",
+    "label_external_fraud",
+    "label_comm_engagement",
+    "label_ltv",
+    "label_recurrent_txn",
+    "label_product_savings",
+    "label_product_crypto",
+    "label_product_credit",
+]
+
+PROFILE_COLUMNS = [
+    "user_id",
+    "key",
+    "value",
+    "timestamp",
+    "is_lifelong",
+]
+
+NUMERIC_KEYS = {"amount", "fee", "price", "balance", "balance_quantile"}
+
+TEXT_KEYS = {"description", "merchant"}
+
+CATEGORICAL_KEYS = {
+    "event_type",
+    "direction",
+    "currency",
+    "mcc",
+    "channel",
+    "product",
+    "interact",
+    "view",
+    "symbol",
+    "order_type",
+    "counterparty_region",
+    "is_recurrent",
+    "country",
+    "region",
+    "plan",
+    "age_band",
+    "device",
+    "insurance_state",
+    "segment",
+    "risk_persona",
+    "lifelong_first_topup",
+    "lifelong_first_card_payment",
+    "lifelong_first_trading",
+    "lifelong_account_created",
+}
+
+PROFILE_KEYS = {
+    "country",
+    "region",
+    "plan",
+    "age_band",
+    "device",
+    "currency",
+    "balance",
+    "balance_quantile",
+    "insurance_state",
+    "segment",
+    "risk_persona",
+    "lifelong_first_topup",
+    "lifelong_first_card_payment",
+    "lifelong_first_trading",
+    "lifelong_account_created",
+}
