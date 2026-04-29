@@ -1,0 +1,12 @@
+data_dir: data/synth
+tokenizer: data/tokenizer.json
+variant: s
+out_dir: runs/pretrain_s
+steps: 10000
+batch_size: 8
+lr: 0.0003
+weight_decay: 0.01
+warmup_steps: 500
+max_events: 512
+max_event_tokens: 24
+max_profile_tokens: 200

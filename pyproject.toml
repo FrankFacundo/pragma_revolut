@@ -1,0 +1,70 @@
+[project]
+name = "pragma-revolut"
+version = "0.1.0"
+description = "PyTorch implementation of PRAGMA-style foundation models for multi-source banking event histories."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [
+  { name = "PRAGMA Contributors" }
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Financial and Insurance Industry",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "numpy>=1.26.0",
+  "pandas>=2.2.0",
+  "pyarrow>=16.0.0",
+  "pydantic>=2.7.0",
+  "pyyaml>=6.0.1",
+  "safetensors>=0.4.3",
+  "SQLAlchemy>=2.0.0",
+  "pymysql>=1.1.0",
+  "torch>=2.2.0",
+  "tqdm>=4.66.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2.0",
+  "ruff>=0.5.0",
+]
+metrics = [
+  "scikit-learn>=1.4.0",
+]
+
+[project.scripts]
+pragma-generate-data = "pragma.cli.generate_data:main"
+pragma-build-tokenizer = "pragma.cli.build_tokenizer:main"
+pragma-pretrain = "pragma.cli.pretrain:main"
+pragma-finetune = "pragma.cli.finetune:main"
+pragma-infer = "pragma.cli.infer:main"
+
+[build-system]
+requires = ["hatchling>=1.24.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pragma"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "scripts", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

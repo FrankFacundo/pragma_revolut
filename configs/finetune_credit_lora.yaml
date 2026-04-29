@@ -1,0 +1,16 @@
+data_dir: data/synth
+tokenizer: data/tokenizer.json
+checkpoint: runs/pretrain_s/checkpoints/model_last.safetensors
+task: credit_default
+variant: s
+out_dir: runs/finetune_credit
+steps: 2000
+batch_size: 16
+lr: 0.0002
+weight_decay: 0.01
+warmup_steps: 100
+max_events: 512
+representation: both
+lora: true
+lora_rank: 8
+lora_alpha: 8
