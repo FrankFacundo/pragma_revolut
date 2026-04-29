@@ -47,8 +47,9 @@ def autocast_context(ctx: RuntimeContext):
 
 
 def move_batch(batch: dict[str, Any], device: torch.device) -> dict[str, Any]:
+    non_blocking = device.type == "cuda"
     return {
-        key: value.to(device, non_blocking=True) if isinstance(value, torch.Tensor) else value
+        key: value.to(device, non_blocking=non_blocking) if isinstance(value, torch.Tensor) else value
         for key, value in batch.items()
     }
 
